@@ -192,6 +192,8 @@ p { color: var(--text-muted); }
   padding-top: 4rem;
   padding-bottom: 4rem;
   max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
 }
 .eyelash {
   color: var(--accent-2);
@@ -208,9 +210,9 @@ p { color: var(--text-muted); }
 .hero-sub {
   font-size: 1.05rem;
   max-width: 540px;
-  margin-bottom: 1.75rem;
+  margin: 0 auto 1.75rem;
 }
-.hero-cta { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-bottom: 1.5rem; }
+.hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; margin-bottom: 1.5rem; }
 .hero-rating { font-size: 0.95rem; color: var(--accent-2); }
 .hero-rating strong { color: var(--text); }
 
