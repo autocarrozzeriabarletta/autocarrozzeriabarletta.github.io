@@ -14,3 +14,18 @@ mainNav.querySelectorAll("a").forEach((link) => {
     navToggle.setAttribute("aria-expanded", "false");
   });
 });
+
+const galleryVideos = document.querySelectorAll(".gallery-video");
+const videoObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.play().catch(() => {});
+      } else {
+        entry.target.pause();
+      }
+    });
+  },
+  { threshold: 0.6 }
+);
+galleryVideos.forEach((video) => videoObserver.observe(video));
