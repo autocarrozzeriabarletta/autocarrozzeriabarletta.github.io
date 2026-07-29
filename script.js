@@ -53,6 +53,22 @@ const videoObserver = new IntersectionObserver(
 );
 galleryVideos.forEach((video) => videoObserver.observe(video));
 
+const cardsGrid = document.querySelector(".cards-grid");
+if (cardsGrid) {
+  const cardsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          cardsObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+  cardsObserver.observe(cardsGrid);
+}
+
 let scrollTicking = false;
 window.addEventListener("scroll", () => {
   if (scrollTicking) return;
