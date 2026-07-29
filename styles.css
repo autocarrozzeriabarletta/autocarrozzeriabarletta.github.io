@@ -147,6 +147,11 @@ p { color: var(--text-muted); }
 }
 .btn:hover { transform: translateY(-1px); }
 
+.icon-phone {
+  vertical-align: -0.15em;
+  flex-shrink: 0;
+}
+
 .btn-primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: #1a1200;
