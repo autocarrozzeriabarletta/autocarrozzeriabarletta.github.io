@@ -336,8 +336,6 @@ blockquote {
 .cards-grid .card:nth-child(6) { transition-delay: 2s; }
 .cards-grid .card:nth-child(7) { transition-delay: 2.4s; }
 .cards-grid .card:nth-child(8) { transition-delay: 2.8s; }
-.cards-grid .card:nth-child(9) { transition-delay: 3.2s; }
-.cards-grid .card:nth-child(10) { transition-delay: 3.6s; }
 
 @media (prefers-reduced-motion: reduce) {
   .cards-grid .card {
