@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://roccobar.github.io/carrozzeria-barletta/sitemap.xml
+Sitemap: https://autocarrozzeriabarletta.github.io/sitemap.xml
