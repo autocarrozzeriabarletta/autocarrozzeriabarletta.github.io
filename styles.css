@@ -1,12 +1,12 @@
 :root {
-  --bg: #14161a;
-  --bg-alt: #1b1e23;
-  --card: #21252b;
+  --bg: #1d2026;
+  --bg-alt: #262a31;
+  --card: #2c313a;
   --text: #f2f1ee;
-  --text-muted: #a8adb5;
+  --text-muted: #b7bcc4;
   --accent: #ff8a1e;
   --accent-2: #ffc247;
-  --border: #2c3038;
+  --border: #383e48;
   --radius: 14px;
   --max-width: 1140px;
 }
@@ -57,7 +57,7 @@ p { color: var(--text-muted); }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(20, 22, 26, 0.9);
+  background: rgba(29, 32, 38, 0.9);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
 }
@@ -189,7 +189,7 @@ p { color: var(--text-muted); }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(15,16,19,0.75) 0%, rgba(15,16,19,0.88) 55%, rgba(15,16,19,0.97) 100%);
+  background: linear-gradient(180deg, rgba(24,26,31,0.65) 0%, rgba(24,26,31,0.8) 55%, rgba(24,26,31,0.92) 100%);
 }
 .hero-content {
   position: relative;
