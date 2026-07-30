@@ -19,6 +19,12 @@ const MOBILE_QUERY = window.matchMedia("(max-width: 720px)");
 const galleryVideos = Array.from(document.querySelectorAll(".gallery-video"));
 
 galleryVideos.forEach((video) => {
+  // Tapping the video itself is a fallback for when autoplay is blocked
+  // (e.g. iOS Low Power Mode), independent of the desktop play button below.
+  video.addEventListener("click", () => {
+    if (video.paused) video.play().catch(() => {});
+  });
+
   const playBtn = video.closest(".video-wrap")?.querySelector(".video-play-btn");
   if (!playBtn) return;
 
