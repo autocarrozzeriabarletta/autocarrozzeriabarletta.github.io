@@ -383,6 +383,16 @@ blockquote {
 }
 .video-play-btn:hover { background: var(--accent); transform: scale(1.05); }
 .video-play-btn[hidden] { display: none; }
+
+.hero-play-btn {
+  inset: auto;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  margin: 0;
+  width: 64px;
+  height: 64px;
+  z-index: 2;
+}
 .gallery-item figcaption {
   padding: 0.85rem 1rem;
   font-size: 0.85rem;
@@ -539,7 +549,7 @@ blockquote {
   .gallery-grid { grid-template-columns: 1fr; }
   .hero { min-height: 0; }
   .hero-content { padding-top: 3rem; padding-bottom: 3rem; }
-  .video-play-btn { display: none; }
+  .gallery-item .video-play-btn { display: none; }
 }
 
 @media (max-width: 480px) {

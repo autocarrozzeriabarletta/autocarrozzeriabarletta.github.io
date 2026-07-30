@@ -15,6 +15,21 @@ mainNav.querySelectorAll("a").forEach((link) => {
   });
 });
 
+const heroVideo = document.querySelector(".hero-media video");
+const heroPlayBtn = document.querySelector(".hero-play-btn");
+if (heroVideo) {
+  // autoplay is attempted via JS (instead of the HTML attribute) so a
+  // blocked attempt (e.g. iOS Low Power Mode) can reveal a fallback button.
+  heroVideo.play().catch(() => {
+    if (heroPlayBtn) heroPlayBtn.hidden = false;
+  });
+  if (heroPlayBtn) {
+    heroPlayBtn.addEventListener("click", () => {
+      heroVideo.play().then(() => { heroPlayBtn.hidden = true; }).catch(() => {});
+    });
+  }
+}
+
 const MOBILE_QUERY = window.matchMedia("(max-width: 720px)");
 const galleryVideos = Array.from(document.querySelectorAll(".gallery-video"));
 
