@@ -15,39 +15,40 @@ mainNav.querySelectorAll("a").forEach((link) => {
   });
 });
 
+const MOBILE_QUERY = window.matchMedia("(max-width: 720px)");
 const galleryVideos = Array.from(document.querySelectorAll(".gallery-video"));
-const videoRatios = new Map();
 
-function playOnlyMostCentered() {
-  const viewportCenter = window.innerHeight / 2;
-  let best = null;
-  let bestDistance = Infinity;
+galleryVideos.forEach((video) => {
+  const playBtn = video.closest(".video-wrap")?.querySelector(".video-play-btn");
+  if (!playBtn) return;
 
-  galleryVideos.forEach((video) => {
-    const ratio = videoRatios.get(video) || 0;
-    if (ratio >= 0.6) {
-      const rect = video.getBoundingClientRect();
-      const distance = Math.abs(rect.top + rect.height / 2 - viewportCenter);
-      if (distance < bestDistance) {
-        bestDistance = distance;
-        best = video;
-      }
-    }
+  video.addEventListener("play", () => { playBtn.hidden = true; });
+  video.addEventListener("pause", () => { playBtn.hidden = false; });
+
+  playBtn.addEventListener("click", () => {
+    galleryVideos.forEach((other) => {
+      if (other !== video && !other.paused) other.pause();
+    });
+    video.play().catch(() => {});
   });
+});
 
-  galleryVideos.forEach((video) => {
-    if (video === best) {
-      if (video.paused) video.play().catch(() => {});
-    } else if (!video.paused) {
-      video.pause();
-    }
-  });
-}
-
+// Mobile: autoplay whichever video is in view. Desktop: only pause on exit,
+// playback is started by the play button instead.
 const videoObserver = new IntersectionObserver(
   (entries) => {
-    entries.forEach((entry) => videoRatios.set(entry.target, entry.intersectionRatio));
-    playOnlyMostCentered();
+    entries.forEach((entry) => {
+      const video = entry.target;
+      if (MOBILE_QUERY.matches) {
+        if (entry.intersectionRatio >= 0.6) {
+          if (video.paused) video.play().catch(() => {});
+        } else if (!video.paused) {
+          video.pause();
+        }
+      } else if (!entry.isIntersecting && !video.paused) {
+        video.pause();
+      }
+    });
   },
   { threshold: [0, 0.25, 0.5, 0.6, 0.75, 1] }
 );
@@ -68,13 +69,3 @@ if (cardsGrid) {
   );
   cardsObserver.observe(cardsGrid);
 }
-
-let scrollTicking = false;
-window.addEventListener("scroll", () => {
-  if (scrollTicking) return;
-  scrollTicking = true;
-  requestAnimationFrame(() => {
-    playOnlyMostCentered();
-    scrollTicking = false;
-  });
-});
