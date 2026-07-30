@@ -15,13 +15,6 @@ mainNav.querySelectorAll("a").forEach((link) => {
   });
 });
 
-const heroVideo = document.querySelector(".hero-media video");
-if (heroVideo) {
-  heroVideo.addEventListener("click", () => {
-    if (heroVideo.paused) heroVideo.play().catch(() => {});
-  });
-}
-
 const MOBILE_QUERY = window.matchMedia("(max-width: 720px)");
 const galleryVideos = Array.from(document.querySelectorAll(".gallery-video"));
 
