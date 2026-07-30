@@ -4,8 +4,9 @@
   --card: #2c313a;
   --text: #f2f1ee;
   --text-muted: #b7bcc4;
-  --accent: #ff8a1e;
-  --accent-2: #ffc247;
+  --accent: #c6302c;
+  --accent-2: #ff7a63;
+  --accent-navy: #16234a;
   --border: #383e48;
   --radius: 14px;
   --max-width: 1140px;
@@ -100,7 +101,8 @@ p { color: var(--text-muted); }
   font-weight: 600;
   color: var(--text-muted);
 }
-.main-nav a:hover { color: var(--accent); }
+.main-nav a:hover,
+.main-nav a[aria-current="page"] { color: var(--accent); }
 
 .header-actions { display: flex; align-items: center; gap: 0.75rem; }
 
@@ -154,7 +156,7 @@ p { color: var(--text-muted); }
 
 .btn-primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #1a1200;
+  color: #fff5f2;
 }
 .btn-ghost {
   background: transparent;
@@ -460,7 +462,7 @@ blockquote {
 .cta-banner {
   padding: 4rem 0;
   text-align: center;
-  background: linear-gradient(135deg, #201404, #2a1a06);
+  background: linear-gradient(135deg, #2a0a0a, var(--accent-navy));
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
