@@ -108,7 +108,10 @@ p { color: var(--text-muted); }
 
 .header-actions .header-call {
   display: none;
+  border-color: var(--accent);
+  color: var(--text);
 }
+.header-actions .header-call:hover { background: var(--accent); }
 @media (min-width: 1024px) {
   .header-actions .header-call { display: inline-flex; }
 }
@@ -372,7 +375,8 @@ blockquote {
   height: 56px;
   border-radius: 50%;
   border: none;
-  background: rgba(0, 0, 0, 0.55);
+  background: var(--accent);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
   color: #fff;
   display: flex;
   align-items: center;
@@ -381,7 +385,7 @@ blockquote {
   cursor: pointer;
   transition: background 0.15s ease, transform 0.15s ease;
 }
-.video-play-btn:hover { background: var(--accent); transform: scale(1.05); }
+.video-play-btn:hover { background: var(--accent-2); transform: scale(1.05); }
 .video-play-btn[hidden] { display: none; }
 
 .hero-play-btn {
