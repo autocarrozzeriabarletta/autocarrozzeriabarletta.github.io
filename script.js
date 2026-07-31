@@ -15,6 +15,20 @@ mainNav.querySelectorAll("a").forEach((link) => {
   });
 });
 
+function trackContactClick(method) {
+  if (typeof gtag === "function") gtag("event", "contact_click", { method });
+}
+
+document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
+  link.addEventListener("click", () => trackContactClick("phone"));
+});
+document.querySelectorAll('a[href*="wa.me"]').forEach((link) => {
+  link.addEventListener("click", () => trackContactClick("whatsapp"));
+});
+document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+  link.addEventListener("click", () => trackContactClick("email"));
+});
+
 const heroVideo = document.querySelector(".hero-media video");
 const heroPlayBtn = document.querySelector(".hero-play-btn");
 if (heroVideo) {
